@@ -1,0 +1,11 @@
+{
+	"id": "nopeus",
+	"name": "Nopeus",
+	"display_name": "Nopeus",
+	"author": ["jenwalter666", "stupxd"],
+	"description": "An extension of MoreSpeeds which includes more options, including a new speed which makes the event manager run as fast as it can.",
+	"prefix": "nopeus",
+	"main_file": "Nopeus.lua",
+	"badge_colour": "ff3c3c",
+	"version": "2.2.5"
+}

@@ -1,15 +1,3 @@
---- STEAMODDED HEADER
-
---- MOD_NAME: Loop
---- MOD_ID: loop
---- MOD_AUTHOR: [jenwalter666]
---- MOD_DESCRIPTION: Adds a new voucher called Loop, allowing certain vouchers to be re-redeemed in the same run.
---- PRIORITY: -9999999999
---- BADGE_COLOR: 9f008c
---- PREFIX: loop
---- VERSION: 0.1.1
---- LOADER_VERSION_GEQ: 1.0.0
-
 SMODS.Atlas {
 	key = "modicon",
 	path = "loop_avatar.png",

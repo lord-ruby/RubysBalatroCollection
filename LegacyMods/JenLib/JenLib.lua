@@ -1,14 +1,3 @@
---- STEAMODDED HEADER
-
---- MOD_NAME: Jen's Library
---- MOD_ID: JenLib
---- MOD_AUTHOR: [jenwalter666]
---- MOD_DESCRIPTION: Some functions that I commonly use which some people might find a use for
---- BADGE_COLOR: 000000
---- PREFIX: jenlib
---- VERSION: 0.4.0
---- LOADER_VERSION_GEQ: 1.0.0
-
 --Global table, don't modify!
 jl = {}
 

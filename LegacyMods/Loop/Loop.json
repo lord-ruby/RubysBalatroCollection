@@ -1,0 +1,12 @@
+{
+	"id": "loop",
+	"name": "Loop",
+	"display_name": "Loop",
+	"author": ["jenwalter666"],
+	"description": "Adds a new voucher called Loop, allowing certain vouchers to be re-redeemed in the same run.",
+	"prefix": "loop",
+	"main_file": "Loop.lua",
+	"priority": -9999999999,
+	"badge_colour": "9f008c",
+	"version": "0.1.1"
+}

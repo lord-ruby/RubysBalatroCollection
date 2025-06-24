@@ -1,0 +1,11 @@
+{
+	"id": "JenLib",
+	"name": "Jen's Library",
+	"display_name": "Jen's Library",
+	"author": ["jenwalter666"],
+	"description": "Some functions that I commonly use which some people might find a use for",
+	"prefix": "jenlib",
+	"main_file": "JenLib.lua",
+	"badge_colour": "000000",
+	"version": "0.4.0"
+}
