@@ -228,7 +228,7 @@ G.FUNCS.end_consumeable = function(e, delayfac)
 	end}))
 end
 
-if SMODS and SMODS.Mods and SMODS.Mods.Talisman.can_load then
+if SMODS and SMODS.Mods and SMODS.Mods.Talisman and SMODS.Mods.Talisman.can_load then
 	local add_eventref = G.E_MANAGER.add_event
 	function G.E_MANAGER:add_event(ev)
 		if G.SETTINGS.FASTFORWARD >= 3 and G.jokers and G.CURRENT_CALC_TIME and G.CURRENT_CALC_TIME > 0.01 and G.OVERLAY_MENU and G.scoring_text and Talisman.scoring_state and Talisman.scoring_state ~= "after" and Talisman.scoring_state ~= "final_scoring" then
