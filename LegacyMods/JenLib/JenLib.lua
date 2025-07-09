@@ -1,3 +1,14 @@
+--- STEAMODDED HEADER
+
+--- MOD_NAME: Jen's Library
+--- MOD_ID: JenLib
+--- MOD_AUTHOR: [jenwalter666]
+--- MOD_DESCRIPTION: Some functions that I commonly use which some people might find a use for
+--- BADGE_COLOR: 000000
+--- PREFIX: jenlib
+--- VERSION: 0.5.0
+--- LOADER_VERSION_GEQ: 1.0.0
+
 --Global table, don't modify!
 jl = {}
 
@@ -420,7 +431,7 @@ function jl.deepcopy(obj, seen)
     local s = seen or {}
     local res = {}
     s[obj] = res
-    for k, v in pairs(obj) do res[deepCopy(k, s)] = deepCopy(v, s) end
+    for k, v in pairs(obj) do res[jl.deepcopy(k, s)] = jl.deepcopy(v, s) end
     return setmetatable(res, getmetatable(obj))
 end
 
@@ -931,6 +942,41 @@ end
 --Divides the card's size by mod, alias of Card:resize(1 / mod)
 function Card:shrink(mod, force_save)
 	self:resize(1 / mod, force_save)
+end
+
+--Applies, removes, or toggles a sticker on a card.
+--Calling this function with no arguments will toggle the Eternal sticker
+function Card:stick(sticker, method, silent, force)
+	if not sticker or type(sticker) ~= 'string' then sticker = 'eternal' end
+	local data = SMODS.Sticker[sticker]
+	if not data then return end
+	if not method or type(method) ~= 'string' then method = 'toggle' end
+	local changed = false
+	if method == 'apply' or method == 'add' or method == '+' or method == 'a' then
+		if force or data.should_apply(self, self.config.center, self.area, true) then
+			data.apply(self, true)
+			changed = true
+		end
+	elseif method == 'remove' or method == 'sub' or method == '-' or method == 'r' then
+		if self.ability[sticker] then
+			data.apply(self, nil)
+			changed = true
+		end
+	elseif method == 'toggle' or method == 'tog' or method == 'inv' or method == 't' then
+		if self.ability[sticker] then
+			data.apply(self, nil)
+			changed = true
+		elseif force or data.should_apply(self, self.config.center, self.area, true) then
+			data.apply(self, true)
+			changed = true
+		end
+	end
+	if changed and not silent then
+		Q(function() 
+			play_sound("gold_seal", 1.2, 0.4)
+			self:juice_up(0.3, 0.3)
+		return true end, 0.1)
+	end
 end
 
 --Displays some announcement text (duration is affected by gamespeed, providing duration's number as a string will normalise it, or you can do duration*jl.gspd())
